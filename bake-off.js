@@ -1,6 +1,26 @@
 const chooseRecipe = function (bakeryA, bakeryB, recipes) {
-  // Code here!
+  let passedRecipes = '';
+  for (const recipe of recipes) {
+    let bakeryACheck = ingredientCheck(bakeryA, recipe);
+    let bakeryBCheck = ingredientCheck(bakeryB, recipe);
+    if (bakeryACheck && bakeryBCheck) {
+      passedRecipes = passedRecipes + recipe.name;
+    }
+  }
+  return passedRecipes;
 };
+
+function ingredientCheck(bakery, recipe) {
+  let hasIngredient = false;
+  for (let b = 0; b < bakery.length; b++) {
+    for (let i = 0; i < recipe.ingredients.length; i++) {
+      if (bakery[b] === recipe.ingredients[i]) {
+        hasIngredient = true;
+      }
+    }
+  }
+  return hasIngredient;
+}
 
 let bakeryA = ['saffron', 'eggs', 'tomato paste', 'coconut', 'custard'];
 let bakeryB = ['milk', 'butter', 'cream cheese'];
