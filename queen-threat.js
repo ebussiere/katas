@@ -21,15 +21,9 @@ function generateBoard(whiteQueen, blackQueen) {
 }
 
 const isDiagonalThreat = function (q1, q2) {
-  //console.log(q1);
-  //console.log(q2);
   let result = false;
-  //moving down from q1
-
   if (q1[1] > q2[1]) {
     let r = q1[0];
-    //moving "SW" from q1
-    //console.log('SW');
 
     for (let c = q1[1]; c >= q2[1]; c--) {
       if (generatedBoard[r][c] == 1) {
@@ -40,9 +34,6 @@ const isDiagonalThreat = function (q1, q2) {
   }
   if (q1[1] < q2[1]) {
     let r = q1[0];
-    //moving "SE" from q1
-    //console.log('SE');
-
     for (let c = q1[1]; c <= q2[1]; c++) {
       if (generatedBoard[r][c] == 1) {
         result = true;
@@ -75,9 +66,6 @@ const queenThreat = function (generatedBoard) {
   let q1 = queensFound[0];
 
   let q2 = queensFound[1];
-
-  //console.log(isHorizontalThreat(q1, q2) + 'H');
-  //console.log(isDiagonalThreat(q1, q2) + 'D');
 
   if (isDiagonalThreat(q1, q2) || isHorizontalThreat(q1, q2)) {
     return true;
