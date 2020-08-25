@@ -1,12 +1,4 @@
-//let whiteQueen = [0, 5];
-//let blackQueen = [5, 0];
-
-let blackQueen = [0, 7];
-let whiteQueen = [4, 3];
-
-let generatedBoard = generateBoard(whiteQueen, blackQueen);
-
-function generateBoard(whiteQueen, blackQueen) {
+const generateBoard = function (whiteQueen, blackQueen) {
   let board = [];
   for (let j = 0; j < 8; j++) {
     let row = [];
@@ -18,13 +10,12 @@ function generateBoard(whiteQueen, blackQueen) {
   board[whiteQueen[0]][whiteQueen[1]] = 1;
   board[blackQueen[0]][blackQueen[1]] = 1;
   return board;
-}
+};
 
 const isDiagonalThreat = function (q1, q2) {
   let result = false;
   if (q1[1] > q2[1]) {
     let r = q1[0];
-
     for (let c = q1[1]; c >= q2[1]; c--) {
       if (generatedBoard[r][c] == 1) {
         result = true;
@@ -41,13 +32,11 @@ const isDiagonalThreat = function (q1, q2) {
       r++;
     }
   }
-
   return result;
 };
 
 const isHorizontalThreat = function (q1, q2) {
   let result = false;
-
   if (q1[0] == q2[0] || q1[1] == q2[1]) {
     result = true;
   }
@@ -64,15 +53,17 @@ const queenThreat = function (generatedBoard) {
     }
   }
   let q1 = queensFound[0];
-
   let q2 = queensFound[1];
-
   if (isDiagonalThreat(q1, q2) || isHorizontalThreat(q1, q2)) {
     return true;
   } else {
     return false;
   }
 };
+
+let blackQueen = [0, 7];
+let whiteQueen = [4, 3];
+let generatedBoard = generateBoard(whiteQueen, blackQueen);
 
 console.log(generateBoard(whiteQueen, blackQueen));
 console.log(queenThreat(generatedBoard));

@@ -1,6 +1,5 @@
 const repeatNumbers = function (data) {
   let line = '';
-  //console.log(data);
   for (let d = 0; d < data.length; d++) {
     let number = data[d][0];
     let repeat = data[d][1];

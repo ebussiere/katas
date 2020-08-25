@@ -1,4 +1,3 @@
-//const compassDirection = ['east', 'north', 'west', 'south'];
 const blocksAway = function (directions) {
   let northDisplacement = 0;
   let eastDisplacement = 0;

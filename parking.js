@@ -22,30 +22,6 @@ const whereCanIPark = function (spots, vehicle) {
     }
   }
   return location;
-
-  /*for (var row = 0; row < spots.length; row++) {
-    for (var column = 0; column < spots[row].length; column++) {
-      if (vehicle === 'regular') {
-        if (spots[row][column] === 'R') {
-          return column + ',' + row;
-        }
-      } else if (vehicle === 'small') {
-        if (spots[row][column] === 'R' || spots[row][column] === 'S') {
-          return column + ',' + row;
-        }
-      } else if (vehicle === 'motorcycle') {
-        if (
-          spots[row][column] === 'R' ||
-          spots[row][column] === 'S' ||
-          spots[row][column] === 'M'
-        ) {
-          return column + ',' + row;
-        }
-      } else {
-        return 'False';
-      }
-    }
-  }*/
 };
 
 console.log(
